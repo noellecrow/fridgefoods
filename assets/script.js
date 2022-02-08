@@ -1,14 +1,24 @@
-fetch('https://api.humorapi.com/jokes/search?api-key=18cc987c5ed94f4d9d01dfbbec17b43a&include-tags=food')
-.then(function(response) {
+var buttonEl = document.querySelector("#joke");
+var jokeArea = document.querySelector(".joke-area");
+var ingreClear = document.querySelector("#ingre-clear");
+
+buttonEl.addEventListener("click", function(){
+
+  fetch('https://api.humorapi.com/jokes/random/?api-key=18cc987c5ed94f4d9d01dfbbec17b43a&include-tags=food&max-length=140')
+  .then(function(response) {
     return response.json()
 })
 .then(function(JSONResponse) {
   console.log(JSONResponse);
+  jokeArea.innerHTML= "";
+  var jokeEl = document.createElement("p");
+  jokeEl.textContent = JSONResponse.joke;
+  jokeArea.appendChild(jokeEl);
 })
 .catch(function(error) {
   console.log(error);
 });
-
+})
 
 // fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes&q=chicken')
 
@@ -29,3 +39,9 @@ fetch("https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_mi
 .catch(function(error) {
   console.log(error);
 });
+
+ingreClear.addEventListener("click", localStorage.clear);
+
+// list of ingredients created
+//push and convert data from array to string
+localStorage.setItem()
