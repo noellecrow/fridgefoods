@@ -7,7 +7,7 @@ body {
 :root {
     --borderStyle: 2px solid goldenrod;
     --borderRadius: 30px;
-    --upper-height: 20%;
+    --upper-height: 40%;
     --bottom-height: 80%;
   }
 
