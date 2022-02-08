@@ -2,7 +2,11 @@ body {
     background-color: white;
 }
 
+#save-ingredient {
+    height: 20px;
 
+    z-index: -1;
+}
 
 :root {
     --borderStyle: 2px solid goldenrod;
