@@ -48,6 +48,61 @@ fetch(`https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=${input.value}`
 }).then(data => {
   console.log(data);
 })
+
+.then(function(JSONResponse) {
+  console.log(JSONResponse);
+  var printThis = JSON.parse(JSONResponse);
+  console.log(printThis);
+})
+.catch(function(error) {
+  console.log(error);
+});
+
+
+console.log("js is running");
+
+
+function addItem(){
+    var ing;
+    var counter = 0;
+    counter ++;
+
+    //Takes userinput and send it to addToList function.
+    ing = document.getElementById('ingredient').value;
+    addToList(ing, counter)
+    console.log(ing)
+    //Return False to not reload page
+    return false;
+}
+
+function addToList(item, counter){
+    //Create variables for id of list item.
+    var liName = "item" + counter;
+    var delBtnName = "delBtn" + counter;
+
+    //create delete button
+    var delBtn = document.createElement("button");
+    delBtn.type = "submit";
+    delBtn.id = delBtnName;
+    delBtn.onclick=removeFromList(item);
+    delBtn.classList.add(item);
+    delBtn.innerHTML= "Remove"
+
+    //create list item
+    var ul = document.getElementById("list");
+    var li = document.createElement("li");
+    li.id =liName;
+    li.classList.add(item);
+    li.appendChild(document.createTextNode(item));
+    li.appendChild(delBtn);
+    ul.appendChild(li);
+}
+
+function removeFromList(className){
+    // alert("this works")
+    return false;
+}
+
 .catch(err => {
 	console.error(err);
 });
