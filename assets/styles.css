@@ -2,13 +2,16 @@ body {
     background-color: white;
 }
 
+#save-ingredient {
+    height: 20px;
 
+    z-index: -1;
+}
 
 :root {
     --borderStyle: 2px solid goldenrod;
     --borderRadius: 30px;
     --upper-height: 40%;
-    --bottom-height: 80%;
   }
 
   .container {
