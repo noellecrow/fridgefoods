@@ -1,3 +1,49 @@
 body {
     background-color: white;
 }
+
+
+
+:root {
+    --borderStyle: 2px solid goldenrod;
+    --borderRadius: 30px;
+    --upper-height: 20%;
+    --bottom-height: 80%;
+  }
+
+  .container {
+    background-color: white;
+    height: 50em;
+  }
+
+  .upper-box {
+    border-radius: var(--borderRadius);
+    border: var(--borderStyle);
+    background-color: crimson;
+    height: var( --upper-height);
+    position: relative;
+  }
+
+  .upper-inter-box {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    /* background-color: orange; */
+
+  }
+
+  .bottom-box {
+    border-radius: var(--borderRadius);
+    border: var(--borderStyle);
+    background-color: darkgrey;
+    height: var( --bottom-height);
+    position: relative;
+  }
+
+  .bottom-inter-box {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    background-color: orange;
+
+  }
