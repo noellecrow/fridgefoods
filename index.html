@@ -18,7 +18,7 @@
             <div class="upper-inter-box">
             <form id="frml" class="form pure-form pure-form-stacked">
               <fieldset>
-                <label for="ingredient" class="veryBigText" >Enter Ingredient That You Have In Your Fridge:</label><br><br>
+                <label for="ingredient" class="veryBigText ingredientLabel" >Enter Ingredient That You Have In Your Fridge:</label><br><br>
                 <input type="text"
                 class="veryBigText" id="ingredient" name="ingredient" placeholder="Example: Apple"><br><br>
                 <input type="submit" class="submit veryBigText" onclick="return addItem()" value="Add To Fridge">
@@ -41,8 +41,11 @@
         <div class="container right-container pure-u-1 pure-u-sm-3-4">
           <div class="upper-box upper-box-right">
             <div class="upper-inter-box">
-              <form class="pure-form pure-form-stacked">
-            </form>
+              <div class="joke-area veryBigText">
+                <button class="btn" id="joke">Press for a Joke</button>
+              </div>
+              <!-- <form class="pure-form pure-form-stacked">
+            </form> -->
             </div>
           </div>
           <div class="bottom-box bottom-box-right">

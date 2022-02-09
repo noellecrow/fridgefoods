@@ -37,7 +37,6 @@ body {
   background-size: cover;
 }
 .right-container {
-  background-color: darkgrey;
   background-image: url("/favicon_io/salad-2756467_1920.jpg");
   background-size: contain;
   background-size: cover;
@@ -54,7 +53,9 @@ body {
   position: absolute;
   left: 25%;
   top: 25%;
-  background-color: orange;
+  border-radius: var(--borderRadius);
+  background-color: blanchedalmond;
+  color: black;
   border-radius: var(--borderRadius);
 }
 
@@ -67,4 +68,20 @@ body {
 
 .veryBigText {
   font-size: x-large;
+}
+
+
+.joke-area {
+  border-radius: var(--borderRadius);
+  background-color: blanchedalmond;
+  color: black;
+  margin-top: 3em;
+
+}
+
+
+.ingredientLabel {
+  border-radius: var(--borderRadius);
+  background-color: blanchedalmond;
+  color: black;
 }

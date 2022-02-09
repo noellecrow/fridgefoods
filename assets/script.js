@@ -66,11 +66,9 @@ function addToList(item, counter) {
   delBtn.onclick = removeFromList(item);
   delBtn.classList.add(item);
   delBtn.innerHTML = "Remove";
-/////////////////here//////////
 delBtn.onclick=function(){
   removeFromList(this.classList);
 };
-/////////////////here//////////
 
 
   //create list item
@@ -86,11 +84,34 @@ delBtn.onclick=function(){
 }
 
 function removeFromList(className) {
-/////////////////here//////////
 const elements = document.getElementsByClassName(className);
 while(elements.length > 0){
     elements[0].parentNode.removeChild(elements[0]);
 }
-/////////////////here//////////
 return false;
 }
+
+
+////////////joke API ////////////////
+var buttonEl = document.querySelector("#joke");
+var jokeArea = document.querySelector(".joke-area");
+
+buttonEl.addEventListener("click", function(){
+
+  fetch('https://api.humorapi.com/jokes/random/?api-key=6aa49cab3762443aae735d51f06ba01f&include-tags=food&max-length=140')
+  .then(function(response) {
+    return response.json()
+})
+.then(function(JSONResponse) {
+  console.log(JSONResponse);
+  jokeArea.innerHTML= "";
+  var jokeEl = document.createElement("p");
+  jokeEl.textContent = JSONResponse.joke;
+  jokeArea.appendChild(jokeEl);
+
+})
+.catch(function(error) {
+  console.log(error);
+});
+
+})
