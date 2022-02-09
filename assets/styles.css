@@ -1,52 +1,66 @@
 body {
-    background-color: white;
+  /* background-color: white; */
 }
 
-#save-ingredient {
-    height: 20px;
 
-    z-index: -1;
-}
 
 :root {
-    --borderStyle: 2px solid goldenrod;
-    --borderRadius: 30px;
-    --upper-height: 40%;
-  }
+  --borderStyle: 2px solid goldenrod;
+  --borderRadius: 30px;
+  --upper-height: 35%;
+  --bottom-height: 65%;
+}
 
-  .container {
-    background-color: white;
-    height: 50em;
-  }
+.container {
+  /* background-color: white; */
+  height: 70em;
+}
 
-  .upper-box {
-    border-radius: var(--borderRadius);
-    border: var(--borderStyle);
-    background-color: crimson;
-    height: var( --upper-height);
-    position: relative;
-  }
+.upper-box {
+  border-radius: var(--borderRadius);
+  border: var(--borderStyle);
+  height: var( --upper-height);
+  position: relative;
+}
 
-  .upper-inter-box {
-    position: absolute;
-    left: 25%;
-    top: 25%;
-    /* background-color: orange; */
+.upper-inter-box {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+}
 
-  }
+.left-container {
+  background-color: darkgrey;
+  background-image: url("/favicon_io/mediterranean-cuisine-2378758_1920.jpg");
+  background-size: contain;
+  background-size: cover;
+}
+.right-container {
+  background-color: darkgrey;
+  background-image: url("/favicon_io/salad-2756467_1920.jpg");
+  background-size: contain;
+  background-size: cover;
+}
 
-  .bottom-box {
-    border-radius: var(--borderRadius);
-    border: var(--borderStyle);
-    background-color: darkgrey;
-    height: var( --bottom-height);
-    position: relative;
-  }
 
-  .bottom-inter-box {
-    position: absolute;
-    left: 25%;
-    top: 25%;
-    background-color: orange;
+.bottom-box {
+  border-radius: var(--borderRadius);
+  border: var(--borderStyle);
+  height: var( --bottom-height);
+  position: relative;
+}
 
-  }
+.bottom-inter-box {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  background-color: orange;
+  border-radius: var(--borderRadius);
+}
+
+.singleRecipe {
+  font-size:large;
+  margin: 0.6em;
+  border-radius: var(--borderRadius);
+  background-color: yellow;
+}
