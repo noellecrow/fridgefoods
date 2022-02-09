@@ -41,19 +41,19 @@ function createRecipeBox(currentRecipe) {
   );
 }
 
+var counter = 0;
 function addItem() {
   var ing;
-  var counter = 0;
   counter++;
 
   //Takes userinput and send it to addToList function.
   ing = document.getElementById("ingredient").value;
   addToList(ing, counter);
-  console.log("ing : ", ing);
   //Return False to not reload page
   return false;
 }
 
+//function adds item to list
 function addToList(item, counter) {
   //Create variables for id of list item.
   var liName = "item" + counter;
@@ -66,12 +66,18 @@ function addToList(item, counter) {
   delBtn.onclick = removeFromList(item);
   delBtn.classList.add(item);
   delBtn.innerHTML = "Remove";
+/////////////////here//////////
+delBtn.onclick=function(){
+  removeFromList(this.classList);
+};
+/////////////////here//////////
+
 
   //create list item
   var ul = document.getElementById("list");
   var li = document.createElement("li");
   li.id = liName;
-  li.classList.add(item);
+  li.classList.add(item, "ingredients");
   li.appendChild(document.createTextNode(item));
   li.appendChild(delBtn);
   ul.appendChild(li);
@@ -80,6 +86,11 @@ function addToList(item, counter) {
 }
 
 function removeFromList(className) {
-  // alert("this works")
-  return false;
+/////////////////here//////////
+const elements = document.getElementsByClassName(className);
+while(elements.length > 0){
+    elements[0].parentNode.removeChild(elements[0]);
+}
+/////////////////here//////////
+return false;
 }
