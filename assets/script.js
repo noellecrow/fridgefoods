@@ -1,6 +1,8 @@
 // Global Variables
 var buttonEl = document.querySelector("#joke");
+var recipeEl = document.querySelector("#recipes");
 var jokeArea = document.querySelector(".joke-area");
+var recipeArea = document.querySelector(".recipe-area");
 var ingreClear = document.querySelector("#ingre-clear");
 var saveIngre = document.querySelector("#save-ingredient");
 var ingredient = document.querySelector("#ingredient-list");
@@ -29,16 +31,16 @@ buttonEl.addEventListener("click", function(){
 //ingreClear.addEventListener("click", localStorage.clear);
 
 
-var createTaskHandler = function() {
-var listItemEl = document.createElement ("li");
-  listItemEl.className = "input";
-  listItemEl.textContent = "";
-  ingredient.appendChild(listItemEl);
-  console.log(value)
+//var createTaskHandler = function() {
+// var listItemEl = document.createElement ("li");
+//   listItemEl.className = "input";
+//   listItemEl.textContent = "";
+//   ingredient.appendChild(listItemEl);
+//   console.log(value)
 
 
 
-}
+// }
 
 
 console.log("js is running");
@@ -53,8 +55,18 @@ function addItem(){
     ing = document.getElementById('ingredient').value;
     addToList(ing, counter)
     console.log(ing)
+    // save data
+    window.localStorage.setItem('ingredient', JSON.stringify(ing));
+    // retrieve
+    var retrievedData = window.localStorage.getItem('ingredient');
+    var ing2 = JSON.parse(retrievedData);
+    console.log(ing2);
     //Return False to not reload page
     return false;
+
+
+
+
 }
 
 function addToList(item, counter){
@@ -79,7 +91,8 @@ function addToList(item, counter){
     li.appendChild(delBtn);
     ul.appendChild(li);
 
-    fetch(`https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=${item.value}`, {
+
+    fetch(`https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=${input.value}`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "tasty.p.rapidapi.com",
@@ -95,8 +108,11 @@ function addToList(item, counter){
 
 .then(function(JSONResponse) {
   console.log(JSONResponse);
-  //var printThis = JSON.parse(JSONResponse);
-  //console.log(printThis);
+  recipeArea.innerHTML="";
+  var recipeEl = document.createElement("li");
+  recipeEl.textContent.JSONResponse.recipes;
+  recipeArea.appendChild(recipeEl);
+
 })
 .catch(function(error) {
   console.log(error);
