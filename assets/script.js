@@ -107,6 +107,7 @@ buttonEl.addEventListener("click", function(){
   jokeArea.innerHTML= "";
   var jokeEl = document.createElement("p");
   jokeEl.textContent = JSONResponse.joke;
+  // jokeEl.textContent = "here is the joke";
   jokeArea.appendChild(jokeEl);
 
 })
