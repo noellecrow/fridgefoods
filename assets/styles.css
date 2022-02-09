@@ -24,8 +24,9 @@ body {
 }
 
 .upper-inter-box {
+  color: aliceblue;
   position: absolute;
-  left: 25%;
+  left: 15%;
   top: 25%;
 }
 
@@ -49,7 +50,6 @@ body {
   height: var( --bottom-height);
   position: relative;
 }
-
 .bottom-inter-box {
   position: absolute;
   left: 25%;
@@ -63,4 +63,8 @@ body {
   margin: 0.6em;
   border-radius: var(--borderRadius);
   background-color: yellow;
+}
+
+.veryBigText {
+  font-size: x-large;
 }

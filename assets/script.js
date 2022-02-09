@@ -37,7 +37,7 @@ function printRecipes(item) {
 //add single receipe to list one by one
 function createRecipeBox(currentRecipe) {
   $("#recipeInnerContainer").append(
-    `<div id="${currentRecipe}" class="singleRecipe">${currentRecipe}</div>`
+    `<div id="${currentRecipe}" class="singleRecipe veryBigText">${currentRecipe}</div>`
   );
 }
 
