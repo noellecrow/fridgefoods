@@ -1,0 +1,86 @@
+body {
+  /* background-color: white; */
+}
+
+
+
+:root {
+  --borderStyle: 2px solid goldenrod;
+  --borderRadius: 30px;
+  --upper-height: 35%;
+  --bottom-height: 65%;
+}
+.left-container {
+  /* background-color: blueviolet; */
+  background-image: url("/favicon_io/mediterranean-cuisine-2378758_1920.jpg");
+  background-size: contain;
+  background-size: cover;
+}
+.right-container {
+  background-image: url("/favicon_io/salad-2756467_1920.jpg");
+  background-size: contain;
+  background-size: cover;
+}
+.container {
+  /* background-color: white; */
+  height: 70em;
+}
+
+.upper-box {
+  border-radius: var(--borderRadius);
+  border: var(--borderStyle);
+  height: var( --upper-height);
+  position: relative;
+}
+
+.upper-inter-box {
+  color: aliceblue;
+  position: absolute;
+  left: 15%;
+  top: 25%;
+}
+
+
+
+.bottom-box {
+  border-radius: var(--borderRadius);
+  border: var(--borderStyle);
+  height: var( --bottom-height);
+  position: relative;
+}
+.bottom-inter-box {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  border-radius: var(--borderRadius);
+  background-color: blanchedalmond;
+  color: black;
+  border-radius: var(--borderRadius);
+}
+
+.singleRecipe {
+  font-size:large;
+  margin: 0.6em;
+  border-radius: var(--borderRadius);
+  background-color: yellow;
+}
+
+.veryBigText {
+  font-size: x-large;
+}
+
+
+.joke-area {
+  border-radius: var(--borderRadius);
+  background-color: blanchedalmond;
+  color: black;
+  margin-top: 3em;
+
+}
+
+
+.ingredientLabel {
+  border-radius: var(--borderRadius);
+  background-color: blanchedalmond;
+  color: black;
+}
