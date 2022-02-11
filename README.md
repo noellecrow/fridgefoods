@@ -23,5 +23,10 @@ if you click on the "Press for a Joke " button, it give you a joke!
 
 <img width="1283" alt="Screen Shot 2022-02-09 at 6 57 06 PM" src="https://user-images.githubusercontent.com/42502061/153328593-3ccb7e5d-49e7-497d-ae75-2304e8e763ee.png">
 
+LocalStorage :
+
+*item in ingredient list will keep being there after user refresh.
+
+different media size:
 
 
