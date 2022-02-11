@@ -1,3 +1,6 @@
+Deployed :  https://noellecrow.github.io/fridgefoods/
+GitHub repo : https://github.com/noellecrow/fridgefoods
+
 User Story:
 When user opens website, user can input the ingredient that they are looking to cook
 <img width="1255" alt="Screen Shot 2022-02-09 at 6 43 34 PM" src="https://user-images.githubusercontent.com/42502061/153327381-0dfec094-4d3a-4c2d-897e-bdd0975ad8dc.png">

@@ -8,7 +8,6 @@ function previousSearch() {
   var cutRetrieveObject = retrieveObject.split(",");
   console.log("previousSearch function", retrieveObject);
   for (var i=0; i< cutRetrieveObject.length; i++) {
-    console.log("inside for loop", cutRetrieveObject[i]);
     addToList(cutRetrieveObject[i], i)
   }
 
@@ -77,8 +76,8 @@ function addItem() {
     localStorage.setItem("ingredients", ingredientArray)
   }
   // localStorage.setItem("ingredients", ing);
-  printRecipes(item);
-  console.log("retrieveObject", retrieveObject);
+  printRecipes(ing);
+
   //Return False to not reload page
   return false;
 }
