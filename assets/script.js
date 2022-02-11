@@ -1,9 +1,26 @@
+var ingredientArray;
+var retrieveObject = localStorage.getItem("ingredients");
+function previousSearch() {
+  ingredientArray = retrieveObject
+  if (!retrieveObject) {
+    return;
+  }
+  var cutRetrieveObject = retrieveObject.split(",");
+  console.log("previousSearch function", retrieveObject);
+  for (var i=0; i< cutRetrieveObject.length; i++) {
+    console.log("inside for loop", cutRetrieveObject[i]);
+    addToList(cutRetrieveObject[i], i)
+  }
+
+}
+previousSearch()
+
 function printRecipes(item) {
   fetch(`https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=${item}`, {
     method: "GET",
     headers: {
       "x-rapidapi-host": "tasty.p.rapidapi.com",
-      "x-rapidapi-key": "0cd388e86emsh38cba0e720e1220p1e0b48jsn82e9770dc6c0",
+      "x-rapidapi-key": "50bab637e1mshea689b3a138589cp145372jsndf2a531743e8",
     },
   })
     .then((response) => {
@@ -49,6 +66,19 @@ function addItem() {
   //Takes userinput and send it to addToList function.
   ing = document.getElementById("ingredient").value;
   addToList(ing, counter);
+
+  if (!ingredientArray) {
+    ingredientArray = [];
+    ingredientArray.push(ing);
+    localStorage.setItem("ingredients", ingredientArray)
+  } else {
+    ingredientArray = retrieveObject;
+    ingredientArray = ingredientArray + "," + ing;
+    localStorage.setItem("ingredients", ingredientArray)
+  }
+  // localStorage.setItem("ingredients", ing);
+  printRecipes(item);
+  console.log("retrieveObject", retrieveObject);
   //Return False to not reload page
   return false;
 }
@@ -80,7 +110,7 @@ delBtn.onclick=function(){
   li.appendChild(delBtn);
   ul.appendChild(li);
 
-  printRecipes(item);
+
 }
 
 function removeFromList(className) {
