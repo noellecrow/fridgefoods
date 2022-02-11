@@ -28,5 +28,6 @@ LocalStorage :
 *item in ingredient list will keep being there after user refresh.
 
 different media size:
+![Screen Shot 2022-02-10 at 11 57 51 AM](https://user-images.githubusercontent.com/42502061/153546831-af661420-f674-41ca-b32e-bbd548d3d21a.png)
 
 
