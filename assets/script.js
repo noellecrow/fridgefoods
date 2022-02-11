@@ -1,15 +1,15 @@
 var ingredientArray;
-var retrieveObject = localStorage.getItem("ingredients");
+var retrieveObject = JSON.parse(localStorage.getItem("ingredients"));
 function previousSearch() {
   ingredientArray = retrieveObject
   if (!retrieveObject) {
     return;
   }
-  var cutRetrieveObject = retrieveObject.split(",");
-  console.log("previousSearch function", retrieveObject);
-  for (var i=0; i< cutRetrieveObject.length; i++) {
-    addToList(cutRetrieveObject[i], i)
-  }
+  // var cutRetrieveObject = retrieveObject.split(",");
+  // console.log("previousSearch function", retrieveObject);
+  // for (var i=0; i< cutRetrieveObject.length; i++) {
+  //   addToList(cutRetrieveObject[i], i)
+  // }
 
 }
 previousSearch()
@@ -69,13 +69,13 @@ function addItem() {
   if (!ingredientArray) {
     ingredientArray = [];
     ingredientArray.push(ing);
-    localStorage.setItem("ingredients", ingredientArray)
+    localStorage.setItem("ingredients", JSON.stringify(ingredientArray))
   } else {
     ingredientArray = retrieveObject;
-    ingredientArray = ingredientArray + "," + ing;
-    localStorage.setItem("ingredients", ingredientArray)
+    ingredientArray.push(ing);
+    localStorage.setItem("ingredients", JSON.stringify(ingredientArray))
   }
-  // localStorage.setItem("ingredients", ing);
+
   printRecipes(ing);
 
   //Return False to not reload page
