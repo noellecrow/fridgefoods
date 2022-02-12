@@ -1,4 +1,5 @@
 var ingredientArray;
+var list = document.getElementById("list");
 var retrieveObject = JSON.parse(localStorage.getItem("ingredients"));
 function previousSearch() {
   ingredientArray = retrieveObject
@@ -13,7 +14,7 @@ function previousSearch() {
 
 }
 previousSearch()
-
+list.innerHTML = retrieveObject;
 function printRecipes(item) {
   fetch(`https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=${item}`, {
     method: "GET",
@@ -57,14 +58,16 @@ function createRecipeBox(currentRecipe) {
   );
 }
 
-var counter = 0;
+//var counter = ingredientArray.length;
+//var counter = 0;
 function addItem() {
-  var ing;
-  counter++;
 
+  var ing = document.getElementById("ingredient").value;
+  //counter = counter + 1;
+  //console.log(counter);
+  console.log(retrieveObject);
   //Takes userinput and send it to addToList function.
-  ing = document.getElementById("ingredient").value;
-  addToList(ing, counter);
+  addToList(ing);
 
   if (!ingredientArray) {
     ingredientArray = [];
@@ -83,10 +86,10 @@ function addItem() {
 }
 
 //function adds item to list
-function addToList(item, counter) {
+function addToList(item) {
   //Create variables for id of list item.
-  var liName = "item" + counter;
-  var delBtnName = "delBtn" + counter;
+  var liName = "item";
+  var delBtnName = "delBtn";
 
   //create delete button
   var delBtn = document.createElement("button");
