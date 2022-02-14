@@ -1,14 +1,17 @@
 var ingredientArray;
-var retrieveObject = localStorage.getItem("ingredients");
+retrieveObject = JSON.parse(localStorage.getItem("ingredients"));
+// console.log(`this is the beinging of JS, retrieveObject = ${retrieveObject}`)
+
 function previousSearch() {
   ingredientArray = retrieveObject
   if (!retrieveObject) {
     return;
   }
   var cutRetrieveObject = retrieveObject.split(",");
-  console.log("previousSearch function", retrieveObject);
+  // console.log("previousSearch function cutRetrieveObject : ", cutRetrieveObject);
   for (var i=0; i< cutRetrieveObject.length; i++) {
     addToList(cutRetrieveObject[i], i)
+    // console.log(`cutRetrieveObject[i] : ${cutRetrieveObject[i]} | i : ${i}`)
   }
 
 }
@@ -67,13 +70,17 @@ function addItem() {
   addToList(ing, counter);
 
   if (!ingredientArray) {
+    // console.log(`it's !ingredientArray , noting in locationstorage`)
     ingredientArray = [];
     ingredientArray.push(ing);
-    localStorage.setItem("ingredients", ingredientArray)
+    localStorage.setItem("ingredients", JSON.stringify(ingredientArray))
   } else {
+    // console.log(`adding${ing} to locationstorage`)
+    retrieveObject = JSON.parse(localStorage.getItem("ingredients"));
+    // console.log(`in adding ing to locationstorage, retrieveObject = ${retrieveObject}`)
     ingredientArray = retrieveObject;
     ingredientArray = ingredientArray + "," + ing;
-    localStorage.setItem("ingredients", ingredientArray)
+    localStorage.setItem("ingredients", JSON.stringify(ingredientArray))
   }
   // localStorage.setItem("ingredients", ing);
   printRecipes(ing);
