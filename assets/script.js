@@ -1,20 +1,22 @@
 var ingredientArray;
-var list = document.getElementById("list");
-var retrieveObject = JSON.parse(localStorage.getItem("ingredients"));
+retrieveObject = JSON.parse(localStorage.getItem("ingredients"));
+// console.log(`this is the beinging of JS, retrieveObject = ${retrieveObject}`)
+
 function previousSearch() {
   ingredientArray = retrieveObject
   if (!retrieveObject) {
     return;
   }
-  // var cutRetrieveObject = retrieveObject.split(",");
-  // console.log("previousSearch function", retrieveObject);
-  // for (var i=0; i< cutRetrieveObject.length; i++) {
-  //   addToList(cutRetrieveObject[i], i)
-  // }
+  var cutRetrieveObject = retrieveObject.split(",");
+  // console.log("previousSearch function cutRetrieveObject : ", cutRetrieveObject);
+  for (var i=0; i< cutRetrieveObject.length; i++) {
+    addToList(cutRetrieveObject[i], i)
+    // console.log(`cutRetrieveObject[i] : ${cutRetrieveObject[i]} | i : ${i}`)
+  }
 
 }
 previousSearch()
-list.innerHTML = retrieveObject;
+
 function printRecipes(item) {
   fetch(`https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=${item}`, {
     method: "GET",
@@ -58,27 +60,29 @@ function createRecipeBox(currentRecipe) {
   );
 }
 
-//var counter = ingredientArray.length;
-//var counter = 0;
+var counter = 0;
 function addItem() {
+  var ing;
+  counter++;
 
-  var ing = document.getElementById("ingredient").value;
-  //counter = counter + 1;
-  //console.log(counter);
-  console.log(retrieveObject);
   //Takes userinput and send it to addToList function.
-  addToList(ing);
+  ing = document.getElementById("ingredient").value;
+  addToList(ing, counter);
 
   if (!ingredientArray) {
+    // console.log(`it's !ingredientArray , noting in locationstorage`)
     ingredientArray = [];
     ingredientArray.push(ing);
     localStorage.setItem("ingredients", JSON.stringify(ingredientArray))
   } else {
+    // console.log(`adding${ing} to locationstorage`)
+    retrieveObject = JSON.parse(localStorage.getItem("ingredients"));
+    // console.log(`in adding ing to locationstorage, retrieveObject = ${retrieveObject}`)
     ingredientArray = retrieveObject;
-    ingredientArray.push(ing);
+    ingredientArray = ingredientArray + "," + ing;
     localStorage.setItem("ingredients", JSON.stringify(ingredientArray))
   }
-
+  // localStorage.setItem("ingredients", ing);
   printRecipes(ing);
 
   //Return False to not reload page
@@ -86,10 +90,10 @@ function addItem() {
 }
 
 //function adds item to list
-function addToList(item) {
+function addToList(item, counter) {
   //Create variables for id of list item.
-  var liName = "item";
-  var delBtnName = "delBtn";
+  var liName = "item" + counter;
+  var delBtnName = "delBtn" + counter;
 
   //create delete button
   var delBtn = document.createElement("button");
